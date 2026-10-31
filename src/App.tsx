@@ -159,7 +159,30 @@ const projects: Project[] = [
       'Planning to extend the application towards agent-based workflows.',
     ],
     status: 'In Progress',
-  },
+  },{
+  id: 7,
+  type: 'Personal Project',
+  title: 'Personal Developer Portfolio',
+  client: 'Independent Project',
+  description:
+    'Designed and developed a responsive personal portfolio website to showcase professional experience, enterprise projects and technology solutions.',
+  technologies: [
+    'React',
+    'TypeScript',
+    'Vite',
+    'CSS',
+    'Git',
+    'GitHub',
+    'Vercel',
+  ],
+  highlights: [
+    'Developed a responsive user interface using React and TypeScript.',
+    'Created reusable components and structured layouts.',
+    'Managed source code and version control using Git and GitHub.',
+    'Configured continuous deployment through GitHub and Vercel.',
+  ],
+  status: 'Live',
+},
 ]
 
 function ProjectCard({ project }: { project: Project }) {
@@ -202,15 +225,14 @@ function ProjectCard({ project }: { project: Project }) {
       )}
 
       {project.status && (
-        <p className="project-status">
-          {project.status}
-        </p>
+        <p className="project-status">{project.status}</p>
       )}
 
       {project.highlights.length > 3 && (
         <button
           className="project-details-btn"
           onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
         >
           {expanded ? 'Show Less' : 'View Details'}
           <span>{expanded ? ' ↑' : ' →'}</span>
@@ -226,12 +248,17 @@ function App() {
 
       {/* Navigation */}
       <nav className="navbar">
-        <h2 className="logo">Portfolio.</h2>
+        <div className="brand-name">
+          <div className="logo">
+            JD<span>.</span>
+          </div>
+          <small>TECH SOLUTIONS & BUSINESS INTEGRATION</small>
+        </div>
 
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+          <a href="#skills">Expertise</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
@@ -239,80 +266,93 @@ function App() {
 
       {/* Hero Section */}
       <section className="hero-section" id="home">
-
         <div className="hero-content">
-          <p className="intro">HELLO, I'M</p>
+          <p className="intro">
+            TECHNOLOGY SPECIALIST & SOFTWARE ENGINEER
+          </p>
 
           <h1>
-            Dipesh
-            <br />
-            <span>Java Developer</span>
+            Connecting Technology
+            <span> with Business Solutions.</span>
           </h1>
 
           <p className="description">
-            I am a software engineer with 5+ years of experience
-            building scalable backend applications using Java,
-            Spring Boot and Microservices.
+            I'm Dipesh, a software engineer with 5+ years of
+            experience building scalable enterprise applications,
+            backend systems and business integrations using
+            Java, Spring Boot and modern technologies.
           </p>
 
           <div className="hero-buttons">
-            <a href="#contact" className="primary-btn">
-              Contact Me
+            <a href="#projects" className="primary-btn">
+              Explore My Work
             </a>
 
-            <a href="#projects" className="secondary-btn">
-              View Projects
+            <a href="#contact" className="secondary-btn">
+              Let's Connect
             </a>
           </div>
         </div>
 
         <div className="hero-card">
           <div className="code-icon">{'{ }'}</div>
-          <h2>Backend Focused</h2>
-          <p>Java | Spring Boot | Microservices</p>
+
+          <h2>Technology & Integration</h2>
+
+          <p>
+            Full Stack Engineering
+            <br />
+            Enterprise Applications
+            <br />
+            Business Integrations
+          </p>
+
           <div className="status">
-            <span></span> Building scalable solutions
+            <span></span>
+            Building scalable solutions
           </div>
         </div>
-
       </section>
 
-      {/* About Me Section */}
+      {/* About Section */}
       <section className="content-section" id="about">
         <p className="section-label">GET TO KNOW ME</p>
+
         <h2>About Me</h2>
 
         <p className="about-description">
-          I'm a software developer with 5+ years of experience building
-          backend applications, REST APIs and enterprise integrations.
-          My primary expertise is Java, Spring Boot and Microservices,
-          with hands-on experience in messaging, caching and deployment
-          automation. I'm also expanding my full-stack capabilities with
-          React and exploring AI-powered application development.
+          I'm a software developer with 5+ years of experience
+          building backend applications, REST APIs and enterprise
+          integrations. My primary expertise is Java, Spring Boot
+          and Microservices, with hands-on experience in messaging,
+          caching and deployment automation. I'm also expanding my
+          full-stack capabilities with React and exploring
+          AI-powered application development.
         </p>
 
         <div className="about-highlights">
           <div className="highlight-card">
             <h3>5+ Years</h3>
-            <p>Software Development</p>
+            <p>Software Development Experience</p>
           </div>
 
           <div className="highlight-card">
             <h3>Backend</h3>
-            <p>Java & Microservices</p>
+            <p>Java & Microservices Engineering</p>
           </div>
 
           <div className="highlight-card">
             <h3>AI + DevOps</h3>
-            <p>Expanding My Toolkit</p>
+            <p>Expanding Technical Capabilities</p>
           </div>
         </div>
       </section>
 
-      {/* Technical Skills Section */}
+      {/* Technical Expertise */}
       <section className="content-section" id="skills">
-        <p className="section-label">MY TOOLKIT</p>
-        <h2>Technical Skills</h2>
+        <p className="section-label">MY TECHNICAL EXPERTISE</p>
+
+        <h2>Technology Stack</h2>
 
         <div className="skills-grid">
           <div className="skill-card">
@@ -359,20 +399,61 @@ function App() {
           </div>
 
           <div className="skill-card">
-            <h3>AI-Assisted Development</h3>
+            <h3>Generative AI</h3>
             <div className="skill-tags">
-              <span>Junie</span>
-              <span>GitHub Copilot</span>
+              <span>Spring AI</span>
               <span>Ollama</span>
-              <span>Spring AI - Learning</span>
+              <span>LLMs</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Solutions */}
+      <section className="content-section" id="services">
+        <p className="section-label">WHAT I DO</p>
+
+        <h2>Technology Solutions</h2>
+
+        <p className="about-description projects-intro">
+          Combining software engineering expertise with practical
+          technology solutions to support business requirements.
+        </p>
+
+        <div className="about-highlights">
+          <div className="highlight-card">
+            <h3>01</h3>
+            <h4>Full Stack Engineering</h4>
+            <p>
+              Enterprise Frontend/backend applications, REST APIs and
+              microservices using React,Java and Spring Boot.
+            </p>
+          </div>
+
+          <div className="highlight-card">
+            <h3>02</h3>
+            <h4>Business Integration</h4>
+            <p>
+              API integrations, asynchronous messaging and
+              connectivity between enterprise systems.
+            </p>
+          </div>
+
+          <div className="highlight-card">
+            <h3>03</h3>
+            <h4>Web Solutions</h4>
+            <p>
+              Modern, responsive websites and web application
+              development for business requirements.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
       <section className="content-section" id="projects">
-        <p className="section-label">WHAT I'VE WORKED ON</p>
+        <p className="section-label">SELECTED WORK</p>
+
         <h2>Projects & Experience</h2>
 
         <p className="about-description projects-intro">
@@ -391,38 +472,40 @@ function App() {
           ))}
         </div>
       </section>
-      
-{/* Business Website Section */}
-<section className="content-section business-section">
-  <p className="section-label">HAVE A PROJECT IN MIND?</p>
 
-  <h2>Need a Website for Your Business?</h2>
+      {/* Business Solutions Section */}
+      <section className="content-section business-section" id="business">
+        <p className="section-label">HAVE A PROJECT IN MIND?</p>
 
-  <p className="about-description">
-    Looking to establish your business online? I can help you
-    create a modern, responsive website that showcases your
-    services, connects with customers and strengthens your
-    online presence.
-  </p>
+        <h2>Let's Build Something Meaningful.</h2>
 
-  <div className="business-button">
-    <a href="mailto:29dipesh@gmail.com?subject=Business%20Website%20Enquiry"
-       className="primary-btn">
-      Contact Me for Your Website →
-    </a>
-  </div>
-</section>
+        <p className="about-description">
+          Looking to establish your business online or streamline
+          your business processes? I can help you create a modern,
+          responsive website or explore technology solutions
+          suited to your requirements.
+        </p>
 
+        <div className="business-button">
+          <a
+            href="mailto:29dipesh@gmail.com?subject=JD%20Tech%20Solutions%20Enquiry"
+            className="primary-btn"
+          >
+            Discuss Your Project →
+          </a>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section className="content-section contact-section" id="contact">
         <p className="section-label">LET'S CONNECT</p>
-        <h2>Contact Me</h2>
+
+        <h2>Start a Conversation</h2>
 
         <p className="about-description contact-description">
-          I'm always interested in discussing software engineering,
-          backend development, full-stack opportunities and innovative
-          technology projects. Feel free to connect with me.
+          Interested in discussing software engineering,
+          backend development, business integrations or a
+          potential project? Feel free to connect with me.
         </p>
 
         <div className="contact-links">
@@ -465,7 +548,9 @@ function App() {
         </div>
 
         <p className="contact-footer">
-          Built with React, TypeScript and a passion for learning.
+          JD. Tech Solutions & Business Integration
+          <br />
+          Built with React, TypeScript and a passion for technology.
         </p>
       </section>
 
