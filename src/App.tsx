@@ -391,6 +391,28 @@ function App() {
           ))}
         </div>
       </section>
+      
+{/* Business Website Section */}
+<section className="content-section business-section">
+  <p className="section-label">HAVE A PROJECT IN MIND?</p>
+
+  <h2>Need a Website for Your Business?</h2>
+
+  <p className="about-description">
+    Looking to establish your business online? I can help you
+    create a modern, responsive website that showcases your
+    services, connects with customers and strengthens your
+    online presence.
+  </p>
+
+  <div className="business-button">
+    <a href="mailto:29dipesh@gmail.com?subject=Business%20Website%20Enquiry"
+       className="primary-btn">
+      Contact Me for Your Website →
+    </a>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section className="content-section contact-section" id="contact">
